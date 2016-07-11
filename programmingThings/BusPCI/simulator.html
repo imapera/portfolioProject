@@ -1,0 +1,528 @@
+<HTML>
+<head>
+	<link rel='stylesheet' type='text/css' href='estilos.css' />
+	
+	
+	<script>
+		
+		var paso = 1;
+		var max,min;
+		var frame,ad,cbe,irdy,trdy,devsel;
+		var frameAnt,adAnt,cbeAnt,irdyAnt,trdyAnt,devselAnt;
+		var frameInf,adInf,cbeInf,irdyInf,trdyInf,devselInf;
+		
+		var c,ctx;
+		
+		var direccionActual;
+		var operacionActual;
+		var datoActual = "";
+		var datoGuardado = 0;
+		
+		
+		var cambioDelBus = 1;
+				
+		// zona de memoria del dispositivo de lectura
+		var esclavoDireccion = ["1f 1f 1f 1f","22 33 44 55","66 77 88 99","aa aa bb cc",
+								"0f 1f 2f 3f","a1 b2 c2 d2","00 00 00 00","00 00 00 00",
+								"00 00 00 00","00 00 00 00","00 00 00 00","00 00 00 00",
+								"00 00 00 00","00 00 00 00","00 00 00 00","00 00 00 00"];
+		
+		// aqui se guardan las lecturas que ha ido realizando el maestro						
+		var lecturas = [];
+		
+		adInf = "";
+		cbeInf = "";
+		
+		// función que pinta la señal de reloj
+		function dibujarCicloReloj(){
+		
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");	
+			
+			ctx.moveTo(min-10,80);
+			ctx.lineTo(min+10,20);
+			ctx.lineTo(min+40,20);
+			ctx.lineTo(min+60,80);
+			ctx.lineTo(min+90,80);
+						
+		}		
+		
+		// función que pinta la señal de frame
+		function dibujarFrame(){
+		
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+									
+			if (frameAnt==0){
+				ctx.moveTo(min-30,180);
+			}else{
+				ctx.moveTo(min-30,120);
+			}
+			
+			if (frame==0){
+				ctx.lineTo(min+30,180);
+				ctx.lineTo(min+70,180);
+			}else{			
+				ctx.lineTo(min+30,120);
+				ctx.lineTo(min+70,120);
+			}	
+			ctx.stroke();	
+		}
+		
+		// función que pinta la señal de IRDY
+		function dibujarIRDY(){
+		
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+									
+			if (irdyAnt==0){
+				ctx.moveTo(min-30,480);
+			}else{
+				ctx.moveTo(min-30,420);
+			}
+			
+			if (irdy==0){
+				ctx.lineTo(min+30,480);
+				ctx.lineTo(min+70,480);
+			}else{			
+				ctx.lineTo(min+30,420);
+				ctx.lineTo(min+70,420);
+			}	
+			ctx.stroke();	
+		
+		}
+		
+		// función que pinta la señal de TRDY
+		function dibujarTRDY(){
+		
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+									
+			if (trdyAnt==0){
+				ctx.moveTo(min-30,580);
+			}else{
+				ctx.moveTo(min-30,520);
+			}
+			
+			if (trdy==0){
+				ctx.lineTo(min+30,580);
+				ctx.lineTo(min+70,580);
+			}else{			
+				ctx.lineTo(min+30,520);
+				ctx.lineTo(min+70,520);
+			}	
+			ctx.stroke();	
+		
+		}
+		
+		// función que pinta la señal de devsel
+		function dibujarDevsel(){
+		
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+									
+			if (devselAnt==0){
+				ctx.moveTo(min-30,680);
+			}else{
+				ctx.moveTo(min-30,620);
+			}
+			
+			if (devsel==0){
+				ctx.lineTo(min+30,680);
+				ctx.lineTo(min+70,680);
+			}else{			
+				ctx.lineTo(min+30,620);
+				ctx.lineTo(min+70,620);
+			}	
+			ctx.stroke();	
+		
+		}
+		
+		// función que pinta la señal e información de AD
+		function dibujarAD(){
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+			ctx.moveTo(min+50,250);
+			ctx.lineTo(min+60,250);
+			ctx.lineTo(min+70,230);
+			ctx.lineTo(min+130,230);
+			ctx.lineTo(min+140,250);
+			ctx.lineTo(min+130,270);
+			ctx.lineTo(min+70,270);
+			ctx.lineTo(min+60,250);
+			ctx.moveTo(min+140,250);
+			ctx.lineTo(min+150,250);
+			ctx.stroke();	
+			ctx.font = "italic 10pt Calibri";
+			ctx.fillText(adInf,min+70,250);
+		}
+		
+		// función que pinta la señal e información de CBE
+		function dibujarCBE(){
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+						
+			ctx.moveTo(min+50,350);
+			ctx.lineTo(min+60,350);
+			ctx.lineTo(min+70,330);
+			ctx.lineTo(min+130,330);
+			ctx.lineTo(min+140,350);
+			ctx.lineTo(min+130,370);
+			ctx.lineTo(min+70,370);
+			ctx.lineTo(min+60,350);
+			ctx.moveTo(min+140,350);
+			ctx.lineTo(min+150,350);
+			ctx.stroke();			
+						
+			ctx.font = "italic 10pt Calibri";
+			ctx.fillText(cbeInf,min+70,350);
+		}
+		
+		// función que imprime la memoria del dispositivo esclavo
+		function imprimirDireccionesUsadasEsclavo(){
+			//celdamemoriaesclavo
+			var celda = "Memoria esclavo <table><tr><td>Direccion</td><td>Contenido</td></tr>";
+			for (i=0;i<esclavoDireccion.length;i++){
+				celda += "<tr><td>"+i+"</td><td>"+esclavoDireccion[i]+"</td></tr>";
+			}
+			celda += "</table> <br>";
+			var celda2 = "Direccion sobre la que se esta operando - "+direccionActual+" <br>Operacion actual - "+operacionActual;
+			document.getElementById("celdamemoriaesclavo").innerHTML = celda;	
+			document.getElementById("celdainformacion").innerHTML = celda2;	
+		}
+		
+		// función que imprime las lecturas que ha realizado el maestro
+		function imprimirDatosLeidos(){
+			var celda = "<table><tr><th>Lecturas realizadas </th></tr>";
+			for (i=0;i<lecturas.length;i++){
+				celda += "<tr><td>"+i+" - "+lecturas[i]+"</td></tr>";
+			}
+			celda += "</table>";
+			document.getElementById("celdalecturas").innerHTML = celda;	
+		}
+		
+		// función principal que calcula todo lo relacionado con simulación y que
+		// se lanza cada vez que se avanza un paso 
+		function step(){
+			
+			max = paso*100;
+			min = (paso-1)*100;
+						
+			// se recogen los datos desde la página					
+			frameAnt = frame;
+			frame = document.getElementById("frame").value;	
+					
+			irdyAnt = irdy;
+			irdy = document.getElementById("irdy").value;	
+					
+			trdyAnt = trdy;
+			trdy = document.getElementById("trdy").value;	
+					
+			devselAnt = devsel;
+			devsel = document.getElementById("devsel").value;	
+									
+			ad = document.getElementById("ad").value;
+			cbe = document.getElementById("cbe").value;
+			
+			
+			// aquí comienzan las decisiones una vez se han recogido los datos
+			
+			if (frame==0 && frameAnt==1){
+			
+				// en este caso se ha activado FRAME por lo que comienza la comunicación
+			
+				cbe = document.getElementById("cbe").value;		
+																	
+				if (cbe=="0110"){ 					// hay que definir que operación
+													// se va a realizar	
+					cbeInf = "leer";				// 0110	para lectura y 0111 escritura
+					operacionActual = "0110";
+			
+				}else if (cbe="0111"){
+					
+					cbeInf = "escribir";			
+					operacionActual = "0111";		
+			
+				}
+			
+				adInf="dir "+ad;			// y también se recoge la dirección del dispositivo
+				direccionActual = ad;		// sobre la que se va a actuar
+				
+			} else if (frame==0 && frameAnt==0) {
+			
+				if (devsel==1 && devselAnt==1){
+					
+					// devsel sigue desactivada por lo que el dispositivo aun no ha reconocido
+					// la dirección que se envío
+					
+					adInf="dir "+ad;		
+								
+				}else if (devsel==0 && devselAnt==1){
+					
+					// el dispositivo ha reconocido la dirección y ha respondido
+					// activando devsel
+					
+					adInf = ad;
+					cbeInf = "mascara "+cbe;
+					
+					// en caso de que sea lectura y no se haya realizado el cambio de bus
+					// anteriormente hay que dejar un ciclo de espera para ese cambio
+					if (operacionActual=="0110" && cambioDelBus==1){
+						adInf = "cambio bus";
+						cambioDelBus --;
+					}					
+					
+				}else if (devselAnt==0 && devsel==0){
+				
+					// Ya esta en fase de datos y hay que esperar a que ambos dispositivos
+					// estén listos para la comunicación
+					
+					adInf = ad;
+					cbeInf = "mascara "+cbe;
+										
+					if (irdy==0 && trdy==0){
+						
+						if (operacionActual == "0111"){
+											
+							// ESCRITURA
+												
+							// En estas líneas se forma el contenido de la linea de memoria
+							// en la que se escribirá respetando la máscara de bytes que
+							// venía en CBE
+							var nuevoContenido = "";
+							if (cbe[0]==1) nuevoContenido += ad.substring(0,2);
+							else nuevoContenido += esclavoDireccion[direccionActual].substring(0,2);
+							nuevoContenido += " ";
+							if (cbe[1]==1) nuevoContenido += ad.substring(3,5);
+							else nuevoContenido += esclavoDireccion[direccionActual].substring(3,5);
+							nuevoContenido += " ";
+							if (cbe[2]==1) nuevoContenido += ad.substring(6,8);
+							else nuevoContenido += esclavoDireccion[direccionActual].substring(6,8);
+							nuevoContenido += " ";
+							if (cbe[3]==1) nuevoContenido += ad.substring(9,11);
+							else nuevoContenido += esclavoDireccion[direccionActual].substring(9,11);
+							
+							esclavoDireccion[direccionActual] = nuevoContenido;
+							direccionActual ++;
+							
+						}else if (operacionActual == "0110"){
+						
+							// LECTURA
+						
+							if (cambioDelBus==1){
+							
+								// Si se va a realizar una lectura hay que esperar a que se 
+								// realice el cambio de sentido del bus
+							
+								adInf = "cambio bus";
+								cambioDelBus--;
+								
+							}else{
+							
+								ad = esclavoDireccion[direccionActual];
+								adInf = esclavoDireccion[direccionActual];
+								
+								// En estas líneas se forma el contenido de la linea de memoria
+								// en la que se leerán respetando la máscara de bytes que
+								// venía en CBE
+								var nuevoContenido = "";
+								if (cbe[0]==1) nuevoContenido += ad.substring(0,2);
+								else nuevoContenido += "00";
+								nuevoContenido += " ";
+								if (cbe[1]==1) nuevoContenido += ad.substring(3,5);
+								else nuevoContenido += "00";
+								nuevoContenido += " ";
+								if (cbe[2]==1) nuevoContenido += ad.substring(6,8);
+								else nuevoContenido += "00";
+								nuevoContenido += " ";
+								if (cbe[3]==1) nuevoContenido += ad.substring(9,11);
+								else nuevoContenido += "00";
+							
+								lecturas[lecturas.length] = nuevoContenido;
+								direccionActual ++;			
+								
+							}					
+						}
+					} else if (trdy==1 || irdy==1) {
+					
+					
+						if (operacionActual == "0110"){
+							adInf = "XX XX XX XX";
+						}
+					
+					}	
+				}else{
+					
+					
+						
+				}		
+			}else if ((frameAnt==0 && frame==1) || (frameAnt==1 && frame==1)){
+				
+				// Se ha desactivado frame por lo que se está a la espera de la última
+				// transferencia
+				
+				if (irdy==0 && trdy==0 && devsel==0){
+				
+					// Los dos dispositivos estan disponibles para recibir el último dato
+					
+					cbe = document.getElementById("cbe").value;	
+					
+					if (operacionActual == "0111"){
+					
+						// En estas líneas se forma el contenido de la linea de memoria
+						// en la que se escribirá respetando la máscara de bytes que
+						// venía en CBE
+					
+						var nuevoContenido = "";
+						if (cbe[0]==1) nuevoContenido += ad.substring(0,2);
+						else nuevoContenido += esclavoDireccion[direccionActual].substring(0,2);
+						nuevoContenido += " ";
+						if (cbe[1]==1) nuevoContenido += ad.substring(3,5);
+						else nuevoContenido += esclavoDireccion[direccionActual].substring(3,5);
+						nuevoContenido += " ";
+						if (cbe[2]==1) nuevoContenido += ad.substring(6,8);
+						else nuevoContenido += esclavoDireccion[direccionActual].substring(6,8);
+						nuevoContenido += " ";
+						if (cbe[3]==1) nuevoContenido += ad.substring(0,2);
+						else nuevoContenido += esclavoDireccion[direccionActual].substring(9,11);
+						esclavoDireccion[direccionActual] = nuevoContenido;
+						
+						direccionActual="";
+						operacionActual="";
+						
+					}else if (operacionActual=="0110"){
+					
+						// En estas líneas se forma el contenido de la linea de memoria
+						// en la que se leerá respetando la máscara de bytes que
+						// venía en CBE
+					
+						adInf = esclavoDireccion[direccionActual];
+						
+						var nuevaLectura="";
+						if (cbe[0]==1) nuevaLectura += esclavoDireccion[direccionActual].substring(0,2);
+						else nuevaLectura += "00";
+						nuevaLectura += " ";		
+						if (cbe[1]==1) nuevaLectura += esclavoDireccion[direccionActual].substring(3,5);
+						else nuevaLectura += "00";
+						nuevaLectura += " ";		
+						if (cbe[2]==1) nuevaLectura += esclavoDireccion[direccionActual].substring(6,8);
+						else nuevaLectura += "00";
+						nuevaLectura += " ";		
+						if (cbe[3]==1) nuevaLectura += esclavoDireccion[direccionActual].substring(9,11);
+						else nuevaLectura += "00";					
+							
+						lecturas[lecturas.length] = nuevaLectura;
+						
+						direccionActual="";
+						operacionActual="";					
+									
+					}
+				}else if (devsel==1 && devselAnt==0){
+				
+					cbeInf="";
+					adInf="";
+					cambioDelBus=1;
+					
+				}					
+			}
+			
+						
+			dibujarCicloReloj();
+			dibujarFrame();
+			dibujarIRDY();
+			dibujarTRDY();
+			dibujarDevsel();
+			dibujarAD();
+			dibujarCBE();
+						
+			var c = document.getElementById("canvasSignals");
+			var ctx = c.getContext("2d");
+			ctx.moveTo(max,0);
+			ctx.lineTo(max,230);	
+			ctx.moveTo(max,270);
+			ctx.lineTo(max,330);	
+			ctx.moveTo(max,370);
+			ctx.lineTo(max,700);	
+			ctx.stroke();	
+			
+			document.getElementById("botonempezar").innerHTML = "Avanzar";			
+			paso++;		
+						
+			imprimirDireccionesUsadasEsclavo();
+			imprimirDatosLeidos();
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<table border='solid 1px'>
+		<tr>
+			<td valign=top>
+				<div class='entrada' id='pruebas'>
+					Clock
+				</div>
+				<br>
+				<div class='entrada'>
+					Frame<br>
+					<input type=text id='frame' value='1'>
+				</div>
+				<br>
+				<div class='entrada'>
+					AD<br>
+					<input type=text id='ad' value='1'>
+				</div>
+				<br>
+				<div class='entrada'>
+					CB/E<br>
+					<input type=text id='cbe' value='0111'>
+				</div>
+				<br>
+				<div class='entrada'>
+					IRDY<br>
+					<input type=text id='irdy' value='1'>
+				</div>
+				<br>
+				<div class='entrada'>
+					TRDY<br>
+					<input type=text id='trdy' value='1'>
+				</div>
+				<br>
+				<div class='entrada'>
+					DEVSEL<br>
+					<input type=text id='devsel' value='1'>
+				</div>
+			</td>
+			<td>
+				<canvas id="canvasSignals" width="2000" height="700" style="border:1px solid #000000;"></canvas>
+			</td>
+			
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td>
+				<button id='botonempezar' onclick="step()">Empezar</button>
+			</td>
+			<td id="celdamemoriaesclavo">
+						
+			</td>
+			<td id="celdalecturas">
+		
+			</td>
+			<td id="celdainformacion">
+			
+			</td>
+		</tr>
+	</table>
+	
+	
+
+	<br>
+	
+	
+
+</body>
+</HTML>

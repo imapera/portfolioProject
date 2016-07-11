@@ -1,0 +1,53 @@
+.footerNav{
+	width:100%;
+	background-color:#ffffff;
+	position:fixed;
+	bottom:0px;
+	text-align:center;
+	padding: 0.5% 0% 0.5% 0%;
+	z-index:1;
+	font-size:20px;
+	opacity:0.95;
+}
+
+.footerCommon{
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.footerNavSocial{ 
+	width:10%;
+	text-align:left;
+	margin: 0% 2% 0% 3%;
+}
+
+.footerNavSocial hr{
+}
+
+.footerNavName{
+	font-size:30px;
+	width:70%;
+}
+
+.footerNavName:hover{
+	color:#666666;
+}
+
+.footerNavLanguages{
+	text-align:right;
+	padding: 0% 3% 0% 2%;
+	width:10%;
+}
+
+.socialIcon{
+	width:14%;
+}
+
+.flagIcon{
+	width:25%;
+}
+
+.flagIconCookies{
+	width:2.5%;
+	opacity:0.8;
+}

@@ -1,0 +1,28 @@
+
+.colorControl{
+	position:fixed;
+	top:25%;
+	height:30%;
+	left:-200px;
+	width:3%;
+}
+
+.colorCell{
+	display:inline-block;
+	height:16.66%;
+	width:100%;
+	color:#ffffff;
+	border: solid 1px;
+}
+
+.colorButton{
+	position:fixed;
+	left:0%;
+	top:47%;
+	width:2%;
+	height:5%;
+	background-image:url('colorButton.png');
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+

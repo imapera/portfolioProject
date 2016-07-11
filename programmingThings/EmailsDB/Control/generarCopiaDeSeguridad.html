@@ -1,0 +1,44 @@
+<head>
+
+	<meta charset='UTF8'> 
+
+	<title> copiaDeSeguridad  </title>
+
+	<link rel="stylesheet" type="text/css" href="mainStyles.css">
+ 
+    <script type="text/javascript" src="dbcontrol.js"></script>
+    <script type="text/javascript" src="FileSaver.js"></script>
+
+ 	<script type="text/javascript"> 
+ 	
+        function inicio(){
+    		startDB();
+    	}
+    	
+  		
+  		function generar(divId){
+  			loadAllInString(divId);  
+  			document.getElementById(divId).style.display = "none";
+  			document.getElementById("guardar").style.display = "block";
+  		}
+  		
+  		function guardar(){	
+  			var str = document.getElementById("resultado").innerHTML;
+  			var blob = new Blob([str], {type: "text/plain;charset=utf-8"});
+			saveAs(blob, "copia.js");  		
+  		}
+    	
+    </script> 
+        
+</head>
+<body onload='inicio()'>
+	<div id='eliminar' onclick='generar("resultado")' style='maring:1%;padding:1%;background-color:#00ff00;'>
+		Pulse aqui para generar la copia de seguridad
+	</div>
+	<div id='resultado' style='display:none'>
+	
+	</div>
+	<div id='guardar' style='display:none' onclick='guardar()'>
+		Guardar copia
+	</div>
+</body>

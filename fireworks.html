@@ -1,0 +1,190 @@
+<head>
+
+	<style>
+		body{
+			margin:0px;
+			padding:0px;
+		}
+	</style>
+
+
+	<script>
+			
+		var canvas;
+		var ctx;
+		var parent;
+		var animationTimer;
+	
+		var timeToLife = 50;
+		var timeToExplode = 60;
+	
+		var fireworks = [];
+	
+		function random(min,max){
+			return (Math.random() * (max - min) + min);
+		}	
+		
+		function randomRounded(min,max){
+			return Math.round(random(min,max));
+		}
+		
+	
+		function particle (originX,originY,radius){
+			this.radius = radius;
+			this.originX = originX;
+			this.originY = originY;	
+			this.currentX = originX;
+			this.currentY = originY;			
+			
+			var r;
+			
+			r = random(0,2);
+			if (r > 1) this.destinationX = this.originX - random(0,this.radius);
+			else this.destinationX = this.originX + random(0,this.radius);
+			
+			r = random(0,2);
+			if (r > 1) this.destinationY = this.originY + random(0,this.radius);
+			else this.destinationY = this.originY - random(0,this.radius);
+			
+			this.speedX = (this.destinationX - this.originX)/timeToExplode;
+			this.speedY = (this.destinationY - this.originY)/timeToExplode;
+			
+			this.brigth = Math.round(random(0,40));
+			
+			this.paint = function(){
+				ctx.moveTo(this.currentX-this.speedX*2,this.currentY-this.speedY*2);
+				ctx.lineTo(this.currentX,this.currentY);
+				ctx.stroke();		
+				this.currentX -= this.speedX;
+				this.currentY -= this.speedY;
+			}			
+		}
+	
+		function firework(){
+			this.originX = random(canvas.width*0.3,canvas.width*0.7);
+			this.originY = canvas.height;
+			this.destinationX = random(this.originX - (this.originX * 0.15),this.originX + (this.originX * 0.15));
+			this.destinationY = random(canvas.height * 0.2, canvas.height * 0.45);
+			this.currentX = this.originX;
+			this.currentY = this.originY;
+			this.timeToLife = timeToLife;
+			this.timeToExplode = timeToExplode;
+			this.speedX = (this.originX - this.destinationX) / this.timeToLife;
+			this.speedY = (this.originY - this.destinationY) / this.timeToLife;
+						
+						
+			this.color = Math.round(random(0,360));
+			
+			this.radius = random(canvas.width * 0.05, canvas.width * 0.02);
+			this.particles = [];
+			this.nPartices = Math.round(random(20,40));
+			
+			for (j=0;j<25;j++){				
+				var element = new particle(this.destinationX,this.destinationY,this.radius);
+				this.particles.push(element);
+			}
+						
+			this.paint = function(){
+				ctx.beginPath();
+				ctx.strokeStyle = "hsla("+this.color+", 100%, 60%, 1)";
+				ctx.moveTo(this.currentX - this.speedX, this.currentY - this.speedY);
+				ctx.lineTo(this.currentX,this.currentY);
+				ctx.stroke();					
+				this.currentX -= this.speedX;
+				this.currentY -= this.speedY;	
+				this.timeToLife--;							
+			}						
+			
+			this.paintParticles = function(){
+				ctx.lineWidth = "2";
+				for (k=0;k<this.particles.length;k++){	
+					ctx.beginPath();	
+					ctx.strokeStyle = "hsla("+this.color+", 100%, "+(this.particles[k].brigth + 50)+"%, 1)";
+					this.particles[k].paint();	
+				}
+				this.timeToExplode--;
+			}							
+		}
+		
+	var fps = 30;
+	var now;
+	var then = Date.now();
+	var interval = 1000/fps;
+	var delta;
+	
+	function animation(){		
+		
+ 	 	requestAnimationFrame(animation);
+  	
+	    now = Date.now();
+    	delta = now - then;
+     
+	    if (delta > interval) {
+    
+    	    then = now - (delta % interval);
+        
+		canvas.width = parent.offsetWidth;
+		canvas.height = parent.offsetHeight;
+	
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+			ctx.stroke();
+					
+			for (i=0;i<fireworks.length;i++){
+			
+				if (fireworks[i]){
+			
+					if (fireworks[i].timeToLife > 0){
+						fireworks[i].paint();		
+					} else {
+						if (fireworks[i].timeToExplode > 0){
+							fireworks[i].paintParticles();
+						} else {
+							delete fireworks[i];
+						}
+					}
+				} else {
+			
+					if (randomRounded(0,10) > 9){
+						fireworks[i] = new firework();
+						
+					}				
+				
+				}									
+			}		
+		}	
+	}
+		
+	function initCanvas(){		
+	
+		canvas = document.getElementById("fireworksCanvas");
+		ctx = canvas.getContext("2d");			
+			
+		parent = canvas.parentNode;
+		canvas.width = parent.offsetWidth;
+		canvas.height = parent.offsetHeight;
+			
+		document.getElementById("aux").innerHTML = parent.offsetWidth + "XXX";
+			
+		for (i=0;i<7;i++){
+			var element = new firework();
+			fireworks.push(element);	
+			delete fireworks[i];		
+		}
+			
+		animation();	
+			
+	}
+	
+	</script>
+
+</head>
+<body onload='initCanvas()' style='color:#000000'>
+
+	<div style='width:80%;height:100%;z-index:1;color:#ffffff;'>
+		<canvas id='fireworksCanvas'></canvas>
+	</div>
+	<div id='aux'>
+		AUX
+	</div>
+</body>

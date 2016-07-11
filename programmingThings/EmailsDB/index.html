@@ -1,0 +1,122 @@
+<head>
+
+	<meta charset='UTF8'> 
+
+	<title> Base de Datos de Emails  </title>
+
+	<link rel="stylesheet" type="text/css" href="Control/mainStyles.css">
+ 
+    <script type="text/javascript" src="Control/dbcontrol.js"></script>
+
+ 	<script type="text/javascript"> 
+            
+    	
+ 	</script> 
+        
+</head>
+<body onload='startDB()'>
+	<div class='barraIzquierda inlineDivTop'>
+		<div class='elementoBarraIzquierda'>
+			<div class='boton' onclick='loadAll()'> Cargar </div> | 
+			Filtrar por:
+			<select id='campoFiltro'>
+				<option value='email'>Email</option>
+				<option value='nombre'>Nombre</option>
+				<option value='profesion'>Profesion</option>
+				<option value='entidad'>Entidad</option>
+				<option value='direccion'>Direccion</option>
+				<option value='localidad'>Localidad</option>
+				<option value='pais'>Pais</option>
+				<option value='cp'>CP</option>
+			</select>
+			<input id='textoFiltro' type='text'> <div class='boton' onclick='loadWithFilter()'>Filtrar</div>
+		</div>
+		<br>
+		<div class='elementoBarraIzquierda'>
+			<table id='tablaResultados'>
+				<!-- Esta tabla se llena en JS al tomar los datos de la BD -->	
+			</table>
+			<br>
+			<div class='boton' onclick='marcarTodas()'>Marcar todas</div>
+		</div>	
+		<br>
+		<div class='elementoBarraIzquierda'>
+			Insertar separador <input type='text' value=' ' id='separador'> | <div class='boton' onclick='generarRistraEmails()'> GENERAR RESULTADOS </div>
+		</div>	
+		<br> 
+		<div class='elementoBarraIzquierda'>
+			Resultados: 
+			<br><br>
+			<span id='ristraEmails'></span>
+		</div>	
+	</div><!--
+	--><div class='barraDerecha inlineDivTop'>
+		<div class='elementoBarraDerecha barraFormulario'>
+			Formulario para añadir nuevo email:<br><br>
+			<form id='entrada'>
+				Email: <input type='text' name='email'><br>
+				Nombre: <input type='text' name='nombre'><br>
+				Profesion: <input type='text' name='profesion'><br>
+				Entidad: <input type='text' name='entidad'><br>
+				Dirección: <input type='text' name='direccion'><br>
+				Localidad: <input type='text' name='localidad'><br>
+				País: <input type='text' name='pais'><br>
+				CP: <input type='text' name='cp'><br>
+				Teléfono: <input type='text' name='telefono'><br>
+				Fax: <input type='text' name='fax'><br>
+				Blog: <input type='text' name='blog'><br><br>
+				Observaciones: <br><textarea name='observaciones' rows=5></textarea><br>
+				<br>
+				<div onclick='add()' class='boton'>ENVIAR</div>
+			</form>
+		</div>
+		<br>
+		<div class='elementoBarraDerecha'>
+			Estado conexión:<br>
+			<div id='estadoBD'>Contectando...</div>
+			Estado de datos:<br>
+			<div id='estadoCarga'> No se ha cargado nada</div>
+			<div id='estadoMensaje'></div>
+		</div>
+		<br>
+		<div class='elementoBarraDerecha'>
+			<div class='boton'>
+				<a href='Control/generarCopiaDeSeguridad.html' target="_blank">Realizar copia de seguridad</a>
+			</div>
+			<br><br>
+			<div class='boton'> Cargar copia de seguridad </div>
+			
+		</div>
+	</div>
+	
+	<div id='totalDiv' class='divTotal divFijoEscondido'>
+	</div>
+	<div id='informacionDiv' class='divEdicion divFijoEscondido'>
+		<h3>Contacto - Editar Información</h3>
+		<br>
+		<div class='barraEdicion'>
+			Email 		<input type='text' id='modiemail'><br>
+			Nombre 		<input type='text' id='modinombre'><br>
+			Profesión 	<input type='text' id='modiprofesion'><br>
+			Entidad		<input type='text' id='modientidad'><br>
+		</div>
+		<div class='barraEdicion'>
+			Direccion	<input type='text' id='modidireccion'><br>
+			Localidad	<input type='text' id='modilocalidad'><br>
+			País	 	<input type='text' id='modipais'><br>
+			CP			<input type='text' id='modicp'><br>
+		</div>
+		<div class='barraEdicion'>
+			Teléfono	<input type='text' id='moditelefono'><br>
+			Fax			<input type='text' id='modifax'><br>
+			Blog		<input type='text' id='modiblog'><br>
+		</div>
+		<br><br>Observaciones<br>
+		<textarea rows='4' id='modiobservaciones'></textarea>
+		<hr>
+		<div id='guardarCambios' class='boton'> </div><br><br>
+	</div>		
+	
+</body>
+
+

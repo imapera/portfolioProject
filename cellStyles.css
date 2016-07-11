@@ -1,0 +1,61 @@
+.toolCell{
+	padding:5px;
+	margin: 2% 0% 2% 0%;
+	display:inline-block;
+	box-shadow:0px 1px 1px;
+	color:#ffffff;
+}
+.cellPhp{
+	background-color:#6c7eb7;
+}
+.cellSql{
+	background-color:#9fb3bc;
+}
+.cellHtml{
+	background-color:#f16529;
+}
+.cellCss{
+	background-color:#2aa9e0;
+}
+.cellC{
+	background-color:#892890;
+}
+.cellOpengl{
+	background-color:#5586a4;
+}
+.cellJavascript{
+	background-color:#feda3e;
+}
+.cellCodeigniter{
+	background-color:#ff5d2b;
+}
+.cellMicrosoft{
+	background-color:#7fba00;
+}
+.cellIwork{
+	background-color:#cd0c7f;
+}
+.cellAcrobat{
+	background-color:#d90909;
+}
+.cellPhotoshop{
+	background-color:#f067a2;
+}
+.cellBlender{
+	background-color:#ec7404;
+}
+.cellIlife{
+	background-color:#6d5eff;
+}
+.cellObjetivec{
+	background-color:#7159a6;
+}
+.cellJava{
+	background-color:#ec2a28;
+}
+.cellProcessing{
+	background-color:#2e1f49;
+}
+.cellCpp{
+	background-color:#23b685
+}

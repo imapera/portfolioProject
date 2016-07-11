@@ -1,0 +1,36 @@
+.aboveNav{
+	width:100%;
+	background-color:#ffffff;
+	position:fixed;
+	top:0px;
+	z-index:1;
+	font-size:20px;
+	opacity:0.95;
+}
+
+.aboveNavLeft{
+	display:inline-block;
+	padding: 2% 3% 2% 3%;
+	width:70%;
+}
+
+.aboveNavLeftElement{
+	display:inline-block;
+	padding: 0% 2% 0% 2%;
+}
+
+.aboveNavRight{
+	width:20%;
+	text-align:right;
+	display:inline-block;
+
+}
+
+.aboveNavRightElement{
+	display:inline-block;
+	padding: 0% 5% 0% 5%;
+}
+
+.aboveNavLeftElement:hover, .aboveNavRightElement:hover{
+	color:#666666;
+}
