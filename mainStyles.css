@@ -132,3 +132,28 @@ h1, h2{
 	width:2vw;
 }
 
+.width10{width:10%;}
+.width15{width:15%;}
+.width20{width:20%;}
+.width30{width:30%;}
+.width40{width:40%;}
+.width50{width:50%;}
+.width80{width:80%;}
+.width90{width:90%;}
+.width100{width:100%;}
+.alignRight{text-align:right;};
+.alignLeft{text-align:left;};
+
+.hrSpaced{
+	margin:5% 0% 5% 0%;
+	opacity:0.5;
+};
+
+
+
+
+
+
+
+
+

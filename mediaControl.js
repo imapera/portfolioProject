@@ -1,28 +1,4 @@
 
-var designSectionElementsEdition = [];
-designSectionElements[0]="";
-designSectionElements[1]="";
-designSectionElements[2]="";
-designSectionElements[3]="";
-designSectionElements[4]="";
-designSectionElements[5]="";
-designSectionElements[6]="";
-designSectionElements[7]="";
-designSectionElements[8]="";
-
-var designSectionElementsModelling = [];
-designSectionElementsModelling[0]="";
-designSectionElementsModelling[1]="";
-designSectionElementsModelling[2]="";
-designSectionElementsModelling[3]="";
-designSectionElementsModelling[4]="";
-designSectionElementsModelling[5]="";
-designSectionElementsModelling[6]="";
-
-var designSectionElementsAnimation = [];
-designSectionElementsAnimation[0]="";
-designSectionElementsAnimation[1]="";
-
 function showMedia(media){
 		
 	var div = document.createElement("div");
@@ -78,6 +54,9 @@ function loadSong(song){
 			break;
 		case 2:
 			songSrc = "Fase 2.mp3";
+			break;
+		case 3:
+			songSrc = "Mi canción 5.mp3";
 			break;	
 	}
 	
@@ -89,7 +68,7 @@ function loadSong(song){
 }
 
 function songPause(){
-	document.getElementById("songContainer").pause();
+	//document.getElementById("songContainer").pause();
 }
 
 var circles = [];
@@ -176,16 +155,6 @@ function showCharging(){
 	circlesTimer = setInterval(animatingCircles,16);
 	
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

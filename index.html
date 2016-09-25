@@ -21,6 +21,7 @@
     <script type="text/javascript" src="colorControl.js"></script>
     <script type="text/javascript" src="socialControl.js"></script>
     <script type="text/javascript" src="mediaControl.js"></script>
+    <script type="text/javascript" src="sectionControl.js"></script>
     <script type="text/javascript" src="unblockGame.js"></script>
     <script type="text/javascript" src="fireworks.js"></script>
     <script>
@@ -45,45 +46,6 @@
     			
     	}
     	
-    	function changeSection(newSection){ 
-    	   
-    	   	songPause();
-    	   
-    		if (unblockGame == 1){  	
-    			if (newSection=="homeSection" || newSection=="lifeCurriculumSection" ){
-    				document.getElementById(section).style.display="none";
-    				document.getElementById(newSection).style.display="block";
-    				section=newSection;    			
-    			} else {
-    				changeOk = 0;
-    			
-    				if (newSection=="designSection" && checkObjetive(0) == 1){
-    					changeOk = 1;
-    				} else if (newSection=="programmingSection" && checkObjetive(1) == 1){
-    					changeOk = 1;
-    				} else if (newSection=="miscellanySection" && checkObjetive(2) == 1){
-    					changeOk = 1;
-    				}
-    				
-    				if (changeOk == 1){
-    					document.getElementById(section).style.display="none";
-    					document.getElementById(newSection).style.display="block";
-    					section=newSection;    				
-    				} else {    					
-    					showUnblockGame();
-    				}
-    			}    						
-    		} else {	
-    			document.getElementById(section).style.display="none";
-    			document.getElementById(newSection).style.display="block";
-    			section=newSection;
-    		}    		
-    		
-    		if (newSection=="lifeCurriculumSection") setObjetive(0,1);
-    		 		
-    	}
-
-    	
     	function init(){    	
     	
     		if (localStorage.language) {
@@ -92,7 +54,8 @@
    				changeLanguage("spanish");
 			}
 			
-			if (localStorage.backgroundColor) changeBGColor(localStorage.backgroundColor,0);			
+			if (localStorage.backgroundColor) changeBGColor(localStorage.backgroundColor,0);
+						
     		changeSection("homeSection");    		   		
     		
     		updateUnblockGame();
@@ -107,8 +70,10 @@
 </head>
 
 <body onload='init()'>
-
-	<script> /*showCharging()*/ </script>
+	
+	<script> 
+		showCharging();
+	</script>
 	
 	<iframe id='visitCounter' style='display:none'> </iframe>
 	<script>
@@ -182,258 +147,9 @@
 			</div>	
 		</div>	
 	</div>	
-		
+	
 	<div class='contentSection' id='contentSection'>
-	
-		<div id='homeSection' style='display:none'>			
-			<div class='welcome content' id='welcomeMessage'>
-			</div>
-			<img style='width:70%;' src='welcome.png'><br><br>
-			<div class='mainMessage content' id='mainMessage'>
-			</div>			
-		</div>	
-
-		<div id='programmingSection' style='display:none'>
-			<div class='designMessage content' id='programmingWelcome'>
-			</div>
-			<br><br>
-			<div class='designElement programmingElement'>
-				<table><tr><td>
-				<div class='content' id='drivingGame'></div><br>
-				<iframe style='width:90%;height:70%;' src="https://www.youtube.com/embed/KI3QiumlWtE" frameborder="0" allowfullscreen></iframe> 
-				</td></tr></table>
-			</div>		
-			<div class='designElement programmingElement'>
-				<div class='content' id='splatoonSC'></div><br>
-				<img src='programmingThings/splatoonSC.png'  onclick='showFrame("http://www.splatoonsc.esy.es")'>
-			</div>		
-			<div class='designElement programmingElement'>
-				<table><tr><td>
-				<div class='content' id='polifotoWeb'></div><br>
-					<img src='programmingThings/polifotoWeb.png'  onclick='showMedia("programmingThings/polifotoWeb.png")'>
-				</td></tr></table>
-			</div>				
-			<div class='designElement programmingElement'>
-				<div class='content' id='busPCI'></div><br>
-				<img src='programmingThings/BusPCI.png'  onclick='showFrame("programmingThings/BusPCI/simulator.html")'>
-			</div>		
-			<div class='designElement programmingElement'>
-				<div class='content' id='emailsDB'></div><br>
-				<img src='programmingThings/emailsdb.png'  onclick='showFrame("programmingThings/EmailsDB/index.html")'>
-			</div>		
-		</div>	
-		
-		<div id='miscellanySection' style='display:none'>
-			<div class='miscellanyContent'>
-				<div class='content' id='miscellanyTitle'></div>
-				<div class='content' id='photographyText'></div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/amagroColors.jpg")'>
-					<table><tr><td><img src='photographyImages/amagroColors.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/amagroSunset.jpg")'>
-					<table><tr><td><img src='photographyImages/amagroSuns
-					et.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/calima.jpg")'>
-					<table><tr><td><img src='photographyImages/calima.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/fula.jpg")'>
-					<table><tr><td><img src='photographyImages/fula.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/lapunta.jpg")'>
-					<table><tr><td><img src='photographyImages/lapunta.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/lucy.jpg")'>
-					<table><tr><td><img src='photographyImages/lucy.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/maspalomas.jpg")'>
-					<table><tr><td><img src='photographyImages/maspalomas.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/rotonda.jpg")'>
-					<table><tr><td><img src='photographyImages/rotonda.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/torreon.jpg")'>
-					<table><tr><td><img src='photographyImages/torreon.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/torun.jpg")'>
-					<table><tr><td><img src='photographyImages/torun.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/vistula.jpg")'>
-					<table><tr><td><img src='photographyImages/vistula.jpg'></td></tr></table>
-				</div>
-				<div class='photographyElement' id='photographyText' onclick='showMedia("photographyImages/warsaw.jpg")'>
-					<table><tr><td><img src='photographyImages/warsaw.jpg'></td></tr></table>
-				</div>
-				<hr>
-				<div>
-					<div class='content' id='timelapseText'></div>				
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/0AD05cTWnl8" frameborder="0" allowfullscreen></iframe>
-				</div>
-				<br>
-				<hr>
-					<div class='content' id='musicTitle'></div>	
-					<div class='content' id='musicText'></div><br>
-					<table class='songsTable' align=center>
-						<tr>
-							<td><img class='songImage' id='song1' src='song1.png' onclick='loadSong(1)'></td>
-							<td rowspan=2 style='padding:0% 10% 0% 10%;'><audio controls id='songContainer' onclick='loadSong("song2")'></audio></td>
-						</tr>
-						<tr>
-							<td><img class='songImage' id='song2'  src='song2.png' onclick='loadSong(2)'></td>
-						</tr>					
-					</table>
-					<hr>
-			</div>
-		</div>
-	
-		<div id='designSection' style='display:none'>
-			<div class='designMessage content' id='designWelcome'>
-			</div>
-			<div class='designContainer'>
-				<h3 class='content' id='graphicTitle'></h3>
-				<div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/cartelPaula.jpg' onclick='showMedia("designImages/cartelPaula.jpg")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>				 		
-			 		<table><tr><td>
-			 			<img src='designImages/iconSet.png' onclick='showMedia("designImages/iconSet.png")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>				 		
-			 		<table><tr><td>
-			 			<img src='designImages/teresa.png' onclick='showMedia("designImages/teresa.png")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>				 		
-			 		<table><tr><td>
-			 			<img src='designImages/scientiaCriminumBanner.jpg' onclick='showMedia("designImages/scientiaCriminumBanner.jpg")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/limonYMielLogo.png' onclick='showMedia("designImages/limonYMielLogo.png")'>
-			 		</td></tr></table>
-			 	</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/limonYMielLetras.png' onclick='showMedia("designImages/limonYMielLetras.png")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>		 		
-			 		<table><tr><td>
-			 			<img src='designImages/esquinaFumador.jpg' onclick='showMedia("designImages/esquinaFumador.jpg")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>		 		
-			 		<table><tr><td>
-			 			<img src='designImages/vidWRC.png' onclick='showMedia("designImages/vidWRC.png")'>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>		 		
-			 		<table><tr><td>	 		
-			 		<table><tr><td>
-			 			<img src='designImages/polifoto.png' onclick='showMedia("designImages/polifoto.png")'>
-			 		</td></tr></table>
-			 		</td></tr></table>
-				</div>
-				<hr> 
-				<h3 class='content' id='3dTitle'></h3>
-				<div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/room.png' onclick='showMedia("designImages/room.png")'><br>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>				 		
-			 		<table><tr><td>
-			 			<img src='designImages/apartament.png' onclick='showMedia("designImages/apartament.png")'><br>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/apartamentSmash.png' onclick='showMedia("designImages/apartamentSmash.png")'><br>
-			 		</td></tr></table>
-			 	</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/imac.png' onclick='showMedia("designImages/imac.png")'><br> 
-			 		</td></tr></table>
-			 	</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/seatIbiza.png' onclick='showMedia("designImages/seatIbiza.png")'><br>
-			 		</td></tr></table>
-			 	</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/seatIbizaMk3.png' onclick='showMedia("designImages/seatIbizaMk3.png")'><br>
-			 		</td></tr></table>
-			 	</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/estela.png' onclick='showMedia("designImages/estela.png")'><br> 
-			 		</td></tr></table>
-				</div>
-				<hr> 
-				<h3 class='content' id='3dAnimationTitle'></h3>
-				<div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/marioPeachAnimation.gif' onclick='showMedia("designImages/marioPeachAnimation.gif")'><br>
-			 		</td></tr></table>
-				</div><!--
-			 --><div class='designElement'>
-			 		<table><tr><td>
-			 			<img src='designImages/estelaAnimation.gif' onclick='showMedia("designImages/estelaAnimation.gif")'><br>
-			 		</td></tr></table>
-				</div>
-			</div>
-		</div>
-	
-		<div id='lifeCurriculumSection' style='display:none'>
-			<div class='leftBigBar'>
-				<h1>Imanol Pérez Ramos</h1><br><br>
-				<table class='wideTable content' id='experienceTable'> 
-				</table>
-				<br><hr><br>
-				<table class='wideTable content' id='officialStudiesTable'>				
-				</table>
-				<br><hr><br>
-				<table class='wideTable content' id='additionalStudiesTable'>				
-				</table>
-				<br><hr><br>
-				<table class='wideTable content' id='technicalKnowledgeTable'>				
-				</table>
-				<br><hr><br>
-				<table class='content' id='languagesTable'>				
-				</table>
-			</div>
-			
-			<div class='rightSmallBar'>
-				<div class='rightBarElement' id='myDescription'>
-					<img class='profileImage' src='imanol.png'>
-					<br>
-					<p class='justifiedText content' id='myDescription'>
-					</p>
-				</div>
-				<div class='rightBarElement content' id='homeUniversity'>					
-				</div>
-				<br>
-				<div class='rightBarElement content' id='warsawUniversity'>					
-				</div>
-				<br>
-				<div class='rightBarElement content' id='3Dmodelling'>
-				</div>
-				<br>
-				<div class='rightBarElement content' id='photoshop'>
-				</div>
-				<br>
-				<div class='rightBarElement content' id='webProgramming'>
-				</div>
-			</div>
-			
-		</div>	
-	</div>	
+	</div>
 	
 	<div class='footerNav'>
 		<div class='footerNavSocial footerCommon'>

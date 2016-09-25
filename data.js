@@ -77,272 +77,116 @@ contents["3Dmodellingspanish"]=
 contents["photoshopenglish"] = "Photoshop<p style='text-align:justify'>I learnt Photoshop. First with a Initiation Course and then with a Complete Course of Photoshop CS6.</p>";
 contents["photoshopspanish"] = "Photoshop<p style='text-align:justify'>I learnt Photoshop. First with a Initiation Course and then with a Complete Course of Photoshop CS6.</p>";
 			
-contents["webProgrammingenglish"] = "Web programming bundle <p class='justifiedText'> \
+contents["webProgrammingPackenglish"] = "Web programming bundle <p class='justifiedText'> \
 							Related to web programming I have experience with the whole pack of\
 							<b>HTML, CSS, Javascript, PHP</b> and <b>MySQL</b>, together or separated.<br>\
 							This web is such an example of the experience with HTML, CSS and Javscript.\
 							</p>";	
-contents["webProgrammingspanish"] = "Pack de programación web <p class='justifiedText'> \
+contents["webProgrammingPackspanish"] = "Pack de programación web <p class='justifiedText'> \
 							En relación con la programación web tengo experiencia con el pack completo de\
 							<b>HTML, CSS, Javascript, PHP</b> y <b>MySQL</b>, tanto juntos como separados.<br>\
 							Esta web es un gran ejemplo de mi experiencia con HTML, CSS y Javscript.\
 							</p>";			
-					
-contents["experienceTablespanish"] = 
-					"<tr><td colspan=5><h2>Professional Experience</h2></td></tr>\
-						<tr>\
-							</tr><tr><td>Analista de sistemas</td><td>EIPC</td>\
-							<td>Análisis, programación y soporte de usuarios de sistemas de información</td><td>\
-								<div class='toolCell cellPhp'> ODL </div><br>\
-								<div class='toolCell cellSql'> SQL </div><br>\
-								<div class='toolCell cellJavascript'> Javascript </div><br>\
-							</td>\
-							<td>05/2015 - actualmente</td>\
-						</tr>\
-						<tr>\
-							<td colspan=4><hr></td></tr><tr><td>Administrador informático</td><td>EIPC</td>\
-							<td>Administración de todos los asuntos relacionados con la informática</td><td>\
-								<div class='toolCell cellPhp'> PHP </div><br>\
-								<div class='toolCell cellOpengl'> WordPress </div><br>\
-								<div class='toolCell cellPhotoshop'> Adobe Photoshop </div><br>\
-								<div class='toolCell cellAcrobat'> Adobe Acrobat Pro </div><br>\
-								<div class='toolCell cellHtml'> HTML </div><br>\
-								<div class='toolCell cellCss'> CSS </div><br>\
-								<div class='toolCell cellSql'> MySQL </div><br>\
-								<div class='toolCell cellBlender'> Blender </div>\
-							</td>\
-							<td>09/2015 - 01/2015</td>\
-						</tr>\
-						<tr><td colspan=4><hr></td></tr>\
-						<tr>\
-							<td>Desarollador de software</td><td>ULPGC [Estudiante]</td>\
-							<td>Desarrollo de juego de conducción</td>\
-							<td><div class='toolCell cellC'> C++ </div><br><div class='toolCell cellOpengl'> OpenGL </div></td>\
-							<td>05/2013 - 07/2013</td>\
-						</tr>\
-						<tr><td colspan=4><hr></td></tr>\
-						<tr><td>Desarrollador de Software</td><td>Grupo Perfaler</td>\
-							<td>Desarollo de una aplicación web</td>\
-							<td> <div class='toolCell cellPhp'> PHP </div><br><div class='toolCell cellSql'> MySQL </div><br>\
-							<div class='toolCell cellHtml'> HTML </div><br><div class='toolCell cellCss'> CSS </div> </td>\
-							<td>04/2013 - 07/2013</td>\
-						</tr>\
-						";
-contents["experienceTableenglish"] = 
-					"<tr><td colspan=5><h2>Professional Experience</h2></td></tr>\
-							<tr><td>System analist</td><td>EIPC</td>\
-							<td>Analysis, programming and user support of Information Systems</td><td>\
-								<div class='toolCell cellPhp'> ODL </div><br>\
-								<div class='toolCell cellSql'> SQL </div><br>\
-								<div class='toolCell cellJavascript'> Javascript </div><br>\
-							</td>\
-							<td>05/2015 - now</td>\
-						</tr>\
-						<tr>\
-							<td colspan=4><hr></td></tr><tr><td>Computing Administrator</td><td>EIPC</td>\
-							<td>Administration of applications related to computing</td><td>\
-								<div class='toolCell cellPhp'> PHP </div><br>\
-								<div class='toolCell cellOpengl'> WordPress </div><br>\
-								<div class='toolCell cellPhotoshop'> Adobe Photoshop </div><br>\
-								<div class='toolCell cellAcrobat'> Adobe Acrobat Pro </div><br>\
-								<div class='toolCell cellHtml'> HTML </div><br>\
-								<div class='toolCell cellCss'> CSS </div><br>\
-								<div class='toolCell cellSql'> MySQL </div><br>\
-								<div class='toolCell cellBlender'> Blender </div>\
-							</td>\
-							<td>09/2015 - 01/2015</td>\
-						</tr>\
-						<tr><td colspan=4><hr></td></tr>\
-						<tr>\
-							<td>Software Developer</td><td>ULPGC [student]</td>\
-							<td>Driving videogame developing</td>\
-							<td><div class='toolCell cellC'> C++ </div><br><div class='toolCell cellOpengl'> OpenGL </div></td>\
-							<td>05/2013 - 07/2013</td>\
-						</tr>\
-						<tr><td colspan=4><hr></td></tr>\
-						<tr><td>Software Developer</td><td>Grupo Perfaler</td>\
-							<td>Webapp developing</td>\
-							<td> <div class='toolCell cellPhp'> PHP </div><br><div class='toolCell cellSql'> MySQL </div><br>\
-							<div class='toolCell cellHtml'> HTML </div><br><div class='toolCell cellCss'> CSS </div> </td>\
-							<td>04/2013 - 07/2013</td>\
-						</tr>\
-						";
-				
-contents["officialStudiesTableenglish"] = 
-					"<tr><td colspan=3><h2>Official Studies</h2></td></tr>\
-					<tr><td>Computing Engineering</td>\
-					<td>University of Las Palmas De Gran Canaria</td>\
-					<td> 2008 - now</td></tr>\
-					<tr><td>Computing Engineering</td>\
-					<td>Warsaw University of Technology</td>\
-					<td> 2011 - 2012</td></tr>\
-					";			
-contents["officialStudiesTablespanish"] = 
-					"<tr><td colspan=3><h2>Estudios oficiales</h2></td></tr>\
-					<tr><td>Ingeniería Informática</td>\
-					<td>Universidad de Las Palmas De Gran Canaria</td>\
-					<td> 2008 - now</td></tr>\
-					<tr><td>Ingeniería Informática</td>\
-					<td>Warsaw University of Technology</td>\
-					<td> 2011 - 2012</td></tr>\
-					";						
 
-contents["additionalStudiesTableenglish"] = 
-					"<tr><td colspan=3><h2>Additional studies</h2></td></tr>\
-					<tr><td> 3D Modelling with Blender [90h]</td>\
-					<td>Aula Mentor</td>\
-					<td> 10/2015 </td></tr>\
-					<tr><td>Photoshop CS6 [120h]</td>\
-					<td>INN Formacion</td>\
-					<td> 06/2015 </td></tr>\
-					<tr><td>Initiation to app programming for iOS [40h]</td>\
-					<td>SPEGC</td>\
-					<td> 03/2014</td></tr>\
-					<tr><td>Initiation to smartphone programming [40h]</td>\
-					<td>Extensión Universitaria ULPGC</td>\
-					<td> 12/2010</td></tr>\
-					<tr><td>Initiation to photoshop [20h]</td>\
-					<td>Gran Canaria Campus - Junior Empresa</td>\
-					<td> 04/2009</td></tr>\
-					";					
-contents["additionalStudiesTablespanish"] = 
-					"<tr><td colspan=3><h2>Estudios adicionales</h2></td></tr>\
-					<tr><td>Modelado 3D con Blender [90h]</td>\
-					<td>Aula Mentor</td>\
-					<td> 10/2015 </td></tr>\
-					<tr><td>Photoshop CS6 [120h]</td>\
-					<td>INN Formación</td>\
-					<td> 06/2015 </td></tr>\
-					<tr><td>Iniciación al desarrollo de aplicaciones iOS [40h]</td>\
-					<td>SPEGC</td>\
-					<td> 03/2014</td></tr>\
-					<tr><td>Iniciación a la programación para smarthphones [40h]</td>\
-					<td>Extensión Universitaria ULPGC</td>\
-					<td> 12/2010</td></tr>\
-					<tr><td>Iniciación a la Edicion Gráfica con Photoshop [20h]</td>\
-					<td>Gran Canaria Campus - Junior Empresa</td>\
-					<td> 04/2009</td></tr>\
-					";	
-					
-contents["technicalKnowledgeTableenglish"] = 
-			"<tr><td colspan='2'><h2>Technical Knowledge</h2></td></tr>\
-			<tr>\
-				<td>Basic programming</td>\
-				<td>\
-					<div class='toolCell cellC'> C </div>\
-					<div class='toolCell cellCpp'> C++ </div>\
-					<div class='toolCell cellObjetivec'> Objetive C </div>\
-					<div class='toolCell cellJava'> Java </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Web programming</td>\
-				<td>\
-					<div class='toolCell cellHtml'> HTML </div>\
-					<div class='toolCell cellCss'> CSS </div>\
-					<div class='toolCell cellPhp'> PHP </div>\
-					<div class='toolCell cellSql'> MySQL </div>\
-					<div class='toolCell cellJavascript'> Javascript </div>\
-					<div class='toolCell cellCodeigniter'> CodeIgniter </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Graphic programming</td>\
-				<td>\
-					<div class='toolCell cellOpengl'> OpenGL </div>\
-					<div class='toolCell cellProcessing'> Processing </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Office</td>\
-				<td>\
-					<div class='toolCell cellMicrosoft'> Suite Microsoft Office </div>\
-					<div class='toolCell cellIwork'> Suite iWork </div>\
-					<div class='toolCell cellAcrobat'> Adobe Acrobat Pro </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Multimedia</td>\
-				<td>\
-					<div class='toolCell cellPhotoshop'> Adobe Photoshop </div>\
-					<div class='toolCell cellBlender'> Blender </div>\
-					<div class='toolCell cellPhp'> Cinema 4D </div>\
-					<div class='toolCell cellIlife'> iLife </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Operating Systems and development</td>\
-				<td>\
-					<div class='toolCell cellMicrosoft'> Windows XP/7 </div>\
-					<div class='toolCell cellSql'> Mac OS X </div>\
-					<div class='toolCell cellPhp'> Ubuntu </div>\
-					<div class='toolCell cellOpengl'> Virtual Box </div>\
-					<div class='toolCell cellObjetivec'> Boot Camp </div>\
-					<div class='toolCell cellAcrobat'> Parallels Desktop </div>\
-					<div class='toolCell cellCss'> Xcode </div>\
-				</td>\
-			</tr>";	
-contents["technicalKnowledgeTablespanish"] = 
-			"<tr><td colspan='2'><h2>Conocimientos Técnicos</h2></td></tr>\
-			<tr>\
-				<td>Programación</td>\
-				<td>\
-					<div class='toolCell cellC'> C </div>\
-					<div class='toolCell cellCpp'> C++ </div>\
-					<div class='toolCell cellObjetivec'> Objetive C </div>\
-					<div class='toolCell cellJava'> Java </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Programación Web</td>\
-				<td>\
-					<div class='toolCell cellHtml'> HTML </div>\
-					<div class='toolCell cellCss'> CSS </div>\
-					<div class='toolCell cellPhp'> PHP </div>\
-					<div class='toolCell cellSql'> MySQL </div>\
-					<div class='toolCell cellJavascript'> Javascript </div>\
-					<div class='toolCell cellCodeigniter'> CodeIgniter </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Programación Gráfica</td>\
-				<td>\
-					<div class='toolCell cellOpengl'> OpenGL </div>\
-					<div class='toolCell cellProcessing'> Processing </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Ofimática</td>\
-				<td>\
-					<div class='toolCell cellMicrosoft'> Suite Microsoft Office </div>\
-					<div class='toolCell cellIwork'> Suite iWork </div>\
-					<div class='toolCell cellAcrobat'> Adobe Acrobat Pro </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Multimedia</td>\
-				<td>\
-					<div class='toolCell cellPhotoshop'> Adobe Photoshop </div>\
-					<div class='toolCell cellBlender'> Blender </div>\
-					<div class='toolCell cellPhp'> Cinema 4D </div>\
-					<div class='toolCell cellIlife'> iLife </div>\
-				</td>\
-			</tr>\
-			<tr>\
-				<td>Sistemas operativos y desarrollo</td>\
-				<td>\
-					<div class='toolCell cellMicrosoft'> Windows XP/7 </div>\
-					<div class='toolCell cellSql'> Mac OS X </div>\
-					<div class='toolCell cellPhp'> Ubuntu </div>\
-					<div class='toolCell cellOpengl'> Virtual Box </div>\
-					<div class='toolCell cellObjetivec'> Boot Camp </div>\
-					<div class='toolCell cellAcrobat'> Parallels Desktop </div>\
-					<div class='toolCell cellCss'> Xcode </div>\
-				</td>\
-			</tr>";			
-			
-contents["languagesTableenglish"] = 
-			"<tr><td colspan='2'><h2>Languages and others</h2></td></tr>\
+contents["professionalExperienceenglish"] = "Professional experience";
+contents["professionalExperiencespanish"] = "Experiencia profesional";
+contents["officialStudiesenglish"] = "Official studies";
+contents["officialStudiesspanish"] = "Estudios oficiales";
+contents["additionalStudiesenglish"] = "Additional studies";
+contents["additionalStudiesspanish"] = "Estudios adicionales";
+contents["technicalKnowledgeenglish"] = "Technical knowledge";
+contents["technicalKnowledgespanish"] = "Conocimientos técnicos";
+contents["languagesAndOthersenglish"] = "Languages and others";
+contents["languagesAndOthersspanish"] = "Idiomas y otros";
+
+contents["sianiTitleenglish"] = "System analist";
+contents["sianiTitlespanish"] = "Analista de sistemas";
+contents["sianiCompanyenglish"] = "University Institute of SIANI";
+contents["sianiCompanyspanish"] = "Instituto Universitario SIANI";	
+contents["sianiTaskenglish"] = "System analist, software developer and users support.";
+contents["sianiTaskspanish"] = "Analista de sistemas, desarrollador de software y soporte para usuarios.";	
+contents["sianiDateenglish"] = "05/2016 - now";
+contents["sianiDatespanish"] = "05/2016 - actualmente";	
+
+contents["eipcTitleenglish"] = "Computer administrator";
+contents["eipcTitlespanish"] = "Administrador informático";
+contents["eipcCompanyenglish"] = "EIPC";
+contents["eipcCompanyspanish"] = "EIPC";	
+contents["eipcTaskenglish"] = "Administración de todos los asuntos relacionados con la informática";
+contents["eipcTaskspanish"] = "Administration of applications related to computing";	
+contents["eipcDateenglish"] = "09/2015 - 01/2016";
+contents["eipcDatespanish"] = "09/2015 - 01/2016";	
+
+contents["ulpgcTitleenglish"] = "Software developer";
+contents["ulpgcTitlespanish"] = "Desarrollador de software";
+contents["ulpgcCompanyenglish"] = "ULPGC [student]";
+contents["ulpgcCompanyspanish"] = "ULPGC [estudiante]";	
+contents["ulpgcTaskenglish"] = "Driving videogame developing";
+contents["ulpgcTaskspanish"] = "Desarrollo de juego de conducción";	
+contents["ulpgcDateenglish"] = "06/2013 - 07/2013";
+contents["ulpgcDatespanish"] = "06/2013 - 07/2013";	
+
+contents["perfalerTitleenglish"] = "Software developer";
+contents["perfalerTitlespanish"] = "Desarrollador de software";
+contents["perfalerCompanyenglish"] = "Grupo Perfaler";
+contents["perfalerCompanyspanish"] = "Grupo Perfaler";	
+contents["perfalerTaskenglish"] = "Web app development";
+contents["perfalerTaskspanish"] = "Desarollo de una aplicación web";	
+contents["perfalerDateenglish"] = "04/2013 - 07/2013";
+contents["perfalerDatespanish"] = "04/2013 - 07/2013";	
+
+contents["officialStudiesContentenglish"] = 
+					"<table class='width100'>\
+					<tr><td class='width20'>Computing Engineering</td>\
+					<td class='width30'>University of Las Palmas De Gran Canaria</td>\
+					<td class='width20'> 2008 - now</td></tr>\
+					<tr><td class='width20'>Computing Engineering</td>\
+					<td class='width30'>Warsaw University of Technology</td>\
+					<td class='width20'> 2011 - 2012</td></tr>\
+					</table>";			
+contents["officialStudiesContentspanish"] = 
+					"<table class='width100'>\
+					<tr><td class='width20'>Ingeniería Informática</td>\
+					<td class='width30'>Universidad de Las Palmas De Gran Canaria</td>\
+					<td class='width20'> 2008 - actualmente</td></tr>\
+					<tr><td class='width20'>Ingeniería Informática</td>\
+					<td class='width30'>Warsaw University of Technology</td>\
+					<td class='width20'> 2011 - 2012</td></tr>\
+					</table>";	
+contents["additionalStudiesContentenglish"] = 
+					"<table class='width100'>\
+					<tr><td class='width40'>3D Modelling with Blender [90h]</td><td class='width40'>Aula Mentor</td><td> 10/2015 </td></tr>\
+					<tr><td class='width40'>Photoshop CS6 [120h]</td><td class='width40'>INN Formación</td><td> 06/2015 </td></tr>\
+					<tr><td class='width40'>Iniciación al desarrollo de aplicaciones iOS [40h]</td><td class='width40'>SPEGC</td><td> 03/2014</td></tr>\
+					<tr><td class='width40'>Iniciación a la programación para smarthphones [40h]</td><td class='width40'>Extensión Universitaria ULPGC</td><td> 12/2010</td></tr>\
+					<tr><td class='width40'>Iniciación a la Edicion Gráfica con Photoshop [20h]</td><td class='width40'>Gran Canaria Campus - Junior Empresa</td><td> 04/2009</td></tr>\
+					</table>";					
+contents["additionalStudiesContentspanish"] = 
+					"<table class='width100'>\
+					<tr><td class='width40'>Modelado 3D con Blender [90h]</td><td class='width40'>Aula Mentor</td><td> 10/2015 </td></tr>\
+					<tr><td class='width40'>Photoshop CS6 [120h]</td><td class='width40'>INN Formación</td><td> 06/2015 </td></tr>\
+					<tr><td class='width40'>Initiation to app programming for iOS [40h]</td><td class='width40'>SPEGC</td><td> 03/2014</td></tr>\
+					<tr><td class='width40'>Initiation to smartphone programming [40h]</td><td class='width40'>Extensión Universitaria ULPGC</td><td> 12/2010</td></tr>\
+					<tr><td class='width40'>Initiation to photoshop [20h]</td><td class='width40'>Gran Canaria Campus - Junior Empresa</td><td> 04/2009</td></tr>\
+					</table>";	
+
+contents["programmingenglish"] = "Programming";
+contents["programmingspanish"] = "Programación";
+contents["webProgrammingenglish"] = "Web programming";
+contents["webProgrammingspanish"] = "Programación web";
+contents["graphicProgrammingenglish"] = "Graphic programming";
+contents["graphicProgrammingspanish"] = "Programación gráfica";
+contents["officeenglish"] = "Office";
+contents["officespanish"] = "Ofimática";
+contents["multimediaenglish"] = "Multimedia";
+contents["multimediaspanish"] = "Multimedia";
+contents["osAndDevelopmentenglish"] = "OS and development";
+contents["osAndDevelopmentspanish"] = "Sistemas operativos y desarrollo";
+
+contents["languagesAndOthersenglish"] = "Languages and others";			
+contents["languagesAndOthersspanish"] = "Idiomas y otros";
+contents["languagesAndOthersContentenglish"] = 
+			"<table>\
 			<tr><td>\
 			<ul><li> Spanish - Native </li>\
 			<li> English - Medium </li></ul>\
@@ -358,9 +202,9 @@ contents["languagesTableenglish"] =
 						<li>Artificial Neural Networks simulation: Cases study - ULPGC- 10h</li>\
 					</ul>\
 			</ul>\
-			</td></tr>";			
-contents["languagesTablespanish"] = 
-			"<tr><td colspan='2'><h2>Idiomas y otros</h2></td></tr>\
+			</td></tr></table>";			
+contents["languagesAndOthersContentspanish"] = 
+			"<table>\
 			<tr><td>\
 			<ul><li> Español - Nativo </li>\
 			<li> Inglés - Medio </li></ul>\
@@ -376,8 +220,8 @@ contents["languagesTablespanish"] =
 						<li>Simulación de redes neuronales artificiales: Estudio de casos - ULPGC- 10h</li>\
 					</ul>\
 			</ul>\
-			</td></tr>";			
-
+			</td></tr></table>";		
+			
 contents["designWelcomeenglish"] = 
 	"Welcome to the section related to some of the projects I have done in the design field!";	
 contents["designWelcomespanish"] = 
@@ -392,8 +236,8 @@ contents["3dTitlespanish"]	= "Modelado 3D";
 contents["3dAnimationTitleenglish"] = "3D Animation";
 contents["3dAnimationTitlespanish"] = "Animación 3D";
 
-contents["miscellanyTitleenglish"]	= "<h1>Miscellany</h1> Welcome to the section where things that didn't fit other sections are.<hr>";		
-contents["miscellanyTitlespanish"]	= "<h1>Miscelánea</h1> Bienvenido a la sección donde tienen cabida el resto de cosas que no encajan en las otras.<hr>";
+contents["miscellanyTitleenglish"]	= "<h1>Miscellany</h1> Welcome to the section where things that didn't fit other sections are.";		
+contents["miscellanyTitlespanish"]	= "<h1>Miscelánea</h1> Bienvenido a la sección donde tienen cabida el resto de cosas que no encajan en las otras.";
 
 contents["photographyTextenglish"]	= "<h3>Photography</h3> Photography is one of my favourites hobbies, \
 										never have done it professionally but it is enought to see a nice landscape or moment for\
@@ -408,8 +252,12 @@ contents["timelapseTextspanish"]	= "<h3>Timelapse</h3> Mi pasión por la fotogra
 contents["musicTitleenglish"] = "<h3>Music</h3>";
 contents["musicTitlespanish"] = "<h3>Música</h3>";
 
-contents["musicTextenglish"] = "Composing music is not my passion (but listening to it probably is) like photography or gaming, but trying new applications is. This made me download and learn how to use GarageBand and this way I composed these two songs for a game.";
-contents["musicTextspanish"] = "Componer música no es mi pasión (escucharla si que puede que lo sea) como la fotografía o los videojuegos, pero probar nuevas aplicaciones sí que lo es. Esto me llevo a descargar y aprender a usar GarageBand y así compuse estas dos canciones.";
+contents["musicTextenglish"] = "Composing music is not my passion (but listening to it probably is) like photography or gaming, but trying new applications is. This made me download and learn how to use GarageBand and this way I composed these songs for a game.";
+contents["musicTextspanish"] = "Componer música no es mi pasión (escucharla si que puede que lo sea) como la fotografía o los videojuegos, pero probar nuevas aplicaciones sí que lo es. Esto me llevo a descargar y aprender a usar GarageBand y así compuse estas canciones.";
+			
+contents["musicExplanationenglish"] = "* Click in the image of the song a wait a little bit until the song starts to play.";
+contents["musicExplanationspanish"] = "* Haz clic en la imagen de la canción y espere un poco a que la música empiece a sonar.";
+			
 			
 contents["programmingWelcomeenglish"] = 
 	"Welcome to the section that contains the most important project I have done relate to programming!";	
@@ -429,8 +277,8 @@ contents["busPCIspanish"] = "<h3>Simulador del Bus PCI</h3> <p class='justifiedT
 contents["emailsDBenglish"] = "<h3>Contact Database</h3> <p class='justifiedText'> Web browser based, multiplatform and local application created for storing a list of contacts, visualize them and filter them. It uses IndexedDB compatible with almost all modern web browsers. </p> - Still in development -";
 contents["emailsDBspanish"] = "<h3>Base de datos de contactos</h3> <p class='justifiedText'> Aplicación para navegadores, local y multiplataforma creada para almacenar una lista de contactos, visualizarla y filtrarla. Se basa en IndexedBD compatible con la mayoría de los navegadores modernos. </p> - Todavía en desarrollo -";
 
-contents["splatoonSCenglish"] = "<h3>Splatoon Statistics Center</h3> <p class='justifiedText'> Website for Splatoon players where they can keep and control their game statistics. Appart from this, it has some features like notifications system and chat. </p> <a target='_blank' href='http://www.splatoonsc.esy.es'>www.splatoonsc.esy.es</a> <br><br> - Now working -";
-contents["splatoonSCspanish"] = "<h3>Centro estadístico de Splatoon</h3> <p class='justifiedText'> Página web para jugadores de Splatoon donde recoger y controlar sus estadísticas de juego. Además, contiene sistema  notificaciones y chat.</p> <a target='_blank' href='http://www.splatoonsc.esy.es'>www.splatoonsc.esy.es</a> <br><br> - En funcionamiento -";
+contents["splatoonSCenglish"] = "<h3>Splatoon Statistics Center</h3> <p class='justifiedText'> Website for Splatoon players where they can keep and control their game statistics. Appart from this, it has some features like notifications system and chat. </p> <a target='_blank' href='http://www.splatoonsc.com'>www.splatoonsc.com</a> <br><br> - Now working -";
+contents["splatoonSCspanish"] = "<h3>Centro estadístico de Splatoon</h3> <p class='justifiedText'> Página web para jugadores de Splatoon donde recoger y controlar sus estadísticas de juego. Además, contiene sistema  notificaciones y chat.</p> <a target='_blank' href='http://www.splatoonsc.com'>www.splatoonsc.com</a> <br><br> - En funcionamiento -";
 
 			
 contents["gameCondition0english"] = " - Visit 'Life & Curriculum' section for unblocking Design section.";

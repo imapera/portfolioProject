@@ -5,49 +5,49 @@
 	box-shadow:0px 1px 1px;
 	color:#ffffff;
 }
-.cellPhp{
+.cellPHP, .cellODL{
 	background-color:#6c7eb7;
 }
-.cellSql{
+.cellSQL, .cellMySQL, .cellMacOsX, .cellBootCamp{
 	background-color:#9fb3bc;
 }
-.cellHtml{
+.cellHTML{
 	background-color:#f16529;
 }
-.cellCss{
+.cellCSS, .cellXcode{
 	background-color:#2aa9e0;
 }
 .cellC{
 	background-color:#892890;
 }
-.cellOpengl{
+.cellOpenGL, .cellJira, .cellVirtualBox{
 	background-color:#5586a4;
 }
 .cellJavascript{
 	background-color:#feda3e;
 }
-.cellCodeigniter{
+.cellCodeIgniter{
 	background-color:#ff5d2b;
 }
-.cellMicrosoft{
+.cellMicrosoft, .cellMantis, .cellWindows{
 	background-color:#7fba00;
 }
 .cellIwork{
 	background-color:#cd0c7f;
 }
-.cellAcrobat{
+.cellAcrobat, .cellParallels{
 	background-color:#d90909;
 }
 .cellPhotoshop{
 	background-color:#f067a2;
 }
-.cellBlender{
+.cellBlender, .cellUbuntu{
 	background-color:#ec7404;
 }
 .cellIlife{
 	background-color:#6d5eff;
 }
-.cellObjetivec{
+.cellObjetiveC, .cellCinema4D{
 	background-color:#7159a6;
 }
 .cellJava{
